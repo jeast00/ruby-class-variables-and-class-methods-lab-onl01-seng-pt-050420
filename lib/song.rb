@@ -38,10 +38,7 @@ class Song
   end
 
   def self.artist_count
-    @@artists.each_with_index do |artist, count|
-      counter = 0
-      @@artist_count[artist] != nil || @@artist_count[artist] == artist ? @@artist_count[artist] = count+1 : @@artist_count[artist] = counter+1
-    end
+    @@artists.each { |artist| @@artist_count[artist] ? @@artist_count[artist] += 1 : @@artist_count[artist] = 1 }
     @@artist_count
   end
 
